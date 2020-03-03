@@ -33,6 +33,7 @@ author:
   name   : "Stéphane Philippart"
   avatar : "/assets/images/emoji-barbe.png"
   bio    : "Père, Amoureux, Geek, Dev, Agile"
+  location : "Tours, FR"
   links:
     - label: "TADx"
       icon: "fas fa-fw fa-link"
