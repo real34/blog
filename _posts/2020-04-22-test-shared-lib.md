@@ -88,14 +88,14 @@ La première chose qui m'est venu à l'esprit c'est ... Docker ! :sunglasses:
 
 La vraie fausse bonne idée: je n'ai pas besoin de me connecter à mon instance distante mais il reste tout de même le problème de push le code sur le repo git pour la prise en compte par Jenkins. Il existe bien un moyen de référencer une lib de manière locale sur le file system mais ce n'est pas simple, pas très fiable, peu performant et quand bien même, le process reste lourd pour tester mon développement: il faut que je lance un pipeline via l'interface de Jenkins.
 
-Non, définitivement, je veux pouvoir faire des test unitaires et d'intégration directement dans mon IDE et sur ma PIC (attention inception inside: un job Jenkins qui build / test mon développement de sharedlib !).
+Non, définitivement, je veux pouvoir faire des tests unitaires et d'intégration directement dans mon IDE et sur ma PIC (attention inception inside: un job Jenkins qui build / test mon développement de sharedlib !).
 
 Il y a plusieurs façons de faire des tests et avec elles les frameworks associés: moi je viens du monde Java donc forcément cela va se ressentir sur mes choix :wink:.
 
 J'utilise [JUnit](https://junit.org/){:target="_blank"} comme "ordonnanceur" de tests. 
 
 J'adosse à JUnit un framework qui va me permettre de mocker Jenkins. Ce fameux framework est  [JenkinsPipelineUnit](https://github.com/jenkinsci/JenkinsPipelineUnit){:target="_blank"} qui a été créé à l'origine par l'équipe des furets.com. 
-Après quelques mois d'inactivé, une nouvelle équipe l'a repris en main et de nombreuses nouvelles fonctionnalités ont été ajoutées ainsi que quelques corrections de bugs.
+Après quelques mois d'inactivité, une nouvelle équipe l'a repris en main et de nombreuses nouvelles fonctionnalités ont été ajoutées ainsi que quelques corrections de bugs.
 C'est [officiellement](https://jenkins.io/doc/book/pipeline/development/#unit-test){:target="_blank"} le framework de tests pour les pipelines et il fait partie de l'organisation GitHub Jenkinsci.
 
 Il faut un certain temps pour le prendre en main mais il y a de [nombreux exemples](https://github.com/jenkinsci/JenkinsPipelineUnit/blob/master/README.md#demos-and-examples){:target="_blank"} en lien dans la [documentation](https://github.com/jenkinsci/JenkinsPipelineUnit/blob/master/README.md){:target="_blank"}.

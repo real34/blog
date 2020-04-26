@@ -29,13 +29,13 @@ En effet le mode de développement était un peu empirique:
 Tout d'abord autant le dire tout de suite, si on m'avait posé la question il y a deux ans concernant le développement des pipelines le premier truc que j'aurais répondu : 
 > Mais pourquoi Groovy ? Pourquoi un truc au dessus de Java pas typé qui détecte rien à la compilation !
 
-Mais ça c'était avant, je n'irai pas dire que c'est mon langage préféré mais j'avoue commencer à apprécier certains choix faits et les closures c'est assez sympa (même si le scoping des variables peu prendre du temps à débuguer).
+Mais ça c'était avant, je n'irai pas dire que c'est mon langage préféré mais j'avoue commencer à apprécier certains choix faits et les closures c'est assez sympa (même si le scoping des variables peut prendre du temps à débuguer).
 
 Les différents exemples que je vais utiliser seront basés sur le fait d'utiliser une sharedlib Jenkins, en gros on factorise du code dans une lib permettant de ne pas copier coller du code à outrance dans les Jenkinsfile. Plus d'informations dans la [doc](https://jenkins.io/doc/book/pipeline/shared-libraries/){:target="_blank"} (je ferai peut être un article sur les sharedlib et leur utilisation dans le futur).
 
 Revenons à nos moutons, améliorer mon process de développement, premier réflexe ammener un peu de compilation et de contrôles sur le poste de développement.
 
-Pour cela je reviens aux bases: Maven et tests unitaires (voir d'intégration), pourquoi Maven plutôt que Graddle ? Tout simplement parceque je maitrise plus Maven (un jour je me mettrai à graddle :wink:).
+Pour cela je reviens aux bases: Maven et tests unitaires (voir d'intégration), pourquoi Maven plutôt que Graddle ? Tout simplement parceque je maîtrise plus Maven (un jour je me mettrai à graddle :wink:).
 
 Après pas mal de recherches et de lecture de doc (la doc officielle de Jenkins est plutôt bien faite si on prends le temps de la lire) le choix a été d'utiliser le plugin [groovy-eclipse-compiler](https://github.com/groovy/groovy-eclipse/wiki){:target="_blank"}, l'activation est assez simple:
  ```xml
@@ -54,8 +54,6 @@ Après pas mal de recherches et de lecture de doc (la doc officielle de Jenkins 
           <compilerId>groovy-eclipse-compiler</compilerId>
           <compilerArguments>
               <indy />
-              <!-- optional; supported by batch 2.4.12-04+ -->
-              <configScript>config.groovy</configScript> 
           </compilerArguments>
       </configuration>
       <dependencies>
@@ -93,7 +91,7 @@ Du coup il faut modifier les arborescences où trouver les sources car par défa
               <configuration>
                   <sources>
                       <source>src</source>
-                      <!--<source>vars</source>-->
+                      <source>vars</source>
                   </sources>
               </configuration>
           </execution>
